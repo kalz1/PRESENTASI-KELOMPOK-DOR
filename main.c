@@ -90,4 +90,6 @@ float multiply(float a, float b) {
 
 float divide(float a, float b) {
     return a / b;
+
+return 0;
 }
