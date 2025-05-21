@@ -13,6 +13,8 @@ int main() {
     int first = 1;
 
     do {
+        printf("SIMPLE CALCULATOR\n");
+        printf("======================");
         printf("\nOPTION:\n");
         printf("1. Add\n");
         printf("2. Subtract\n");
