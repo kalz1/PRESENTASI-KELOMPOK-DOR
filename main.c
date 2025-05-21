@@ -23,53 +23,63 @@ int main() {
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
-        if (choice >= 1 && choice <= 4) {
-            if (first) {
-                printf("Enter value of a: ");
-                scanf("%f", &a);
-                first = 0;
-            }
+        switch (choice) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+                if (first) {
+                    printf("Enter value of a: ");
+                    scanf("%f", &a);
+                    first = 0;
+                }
 
-            printf("Enter value of b: ");
-            scanf("%f", &b);
+                printf("Enter value of b: ");
+                scanf("%f", &b);
 
-            switch (choice) {
-                case 1:
-                    result = add(a, b);
-                    printf("Result: %.2f\n", result);
-                    break;
-                case 2:
-                    result = subtract(a, b);
-                    printf("Result: %.2f\n", result);
-                    break;
-                case 3:
-                    result = multiply(a, b);
-                    printf("Result: %.2f\n", result);
-                    break;
-                case 4:
-                    if (b == 0) {
-                        printf("Error: Division by zero is not allowed.\n");
-                        continue;
-                    }
-                    result = divide(a, b);
-                    printf("Result: %.2f\n", result);
-                    break;
-            }
+                switch (choice) {
+                    case 1:
+                        result = add(a, b);
+                        printf("Result: %.2f\n", result);
+                        break;
+                    case 2:
+                        result = subtract(a, b);
+                        printf("Result: %.2f\n", result);
+                        break;
+                    case 3:
+                        result = multiply(a, b);
+                        printf("Result: %.2f\n", result);
+                        break;
+                    case 4:
+                        if (b == 0) {
+                            printf("Error: Division by zero is not allowed.\n");
+                            continue;
+                        }
+                        result = divide(a, b);
+                        printf("Result: %.2f\n", result);
+                        break;
+                }
 
-            printf("Do you want to continue with the result (y/n)? ");
-            scanf(" %c", &lanjut);
+                printf("Do you want to continue with the result (y/n)? ");
+                scanf(" %c", &lanjut);
 
-            if (lanjut == 'y' || lanjut == 'Y') {
-                a = result;
-            } else {
-                first = 1;
-            }
+                if (lanjut == 'y' || lanjut == 'Y') {
+                    a = result;
+                } else {
+                    first = 1;
+                }
+                break;
 
-        } else if (choice != 5) {
-            printf("Invalid input. Please choose a valid option.\n");
+            case 5:
+                // Do nothing, will exit loop
+                break;
+
+            default:
+                printf("Invalid input. Please choose a valid option.\n");
+                break;
         }
 
-    } while (choice != 5); // Loop berhenti jika user memilih 5
+    } while (choice != 5);
 
     printf("Exiting program...\n");
     return 0;
@@ -80,11 +90,14 @@ float add(float a, float b) {
     return a + b;
 }
 
-float subtract(float a, float b) 
-
+float subtract(float a, float b) {
+    return a - b;
+}
 
 float multiply(float a, float b) {
     return a * b;
 }
 
-float divide(float a, float b) 
+float divide(float a, float b) {
+    return a / b;
+}
